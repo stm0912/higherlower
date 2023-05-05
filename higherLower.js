@@ -2,11 +2,18 @@ let valid_max = false;
 
 let N = 0
 
+
+
+
 while (valid_max != true) {
 
-     N = Math.round(Number((window.prompt(prompt))))
+     N = Math.round(Number((window.prompt("Choose the maximum range for the Higher-Lower Game."))))
 
     if (N > 0) {
+
+        let instructions = document.querySelector("#instructions");
+
+       instructions.innerHTML = `Guess a number between 1 and ${N}`
 
         valid_max = true
     }
