@@ -28,17 +28,32 @@ let guesses = []
 
 console.log(num)
 
-function the_guess() {
+const input = document.querySelector("#guess")
+input.addEventListener("keydown", handleKeyDown)
 
-    
+function handleKeyDown(event) {
+    if (event.key == "Enter") {
+        event.preventDefault()
+        the_guess()
+    }
+}
+
+function the_guess() {
+console.log("button clicked")
 
     let guess = Number(document.getElementById("guess").value);
 
     let message = document.getElementById("message");
 
+    function resetInput() {
+        document.getElementById("guess").value = ""
+    }
+
     if (isNaN(guess))  {
 
         message.innerHTML  = "That is not a number!"
+
+        
     }
 
     else if (guess <= 0 || guess > N) {
@@ -72,4 +87,6 @@ function the_guess() {
 
 
         }
+
+        resetInput()
 }
